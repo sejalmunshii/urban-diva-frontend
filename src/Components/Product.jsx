@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./Product.css";
 
-function Product({ item, addToCart, toggleWishlist, wishlist }) {
+function Product({ item, addToCart, toggleWishlist, wishlist = [] }) {
   const navigate = useNavigate();
   const isWishlisted = wishlist.some((x) => x._id === item._id);
 
