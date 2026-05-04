@@ -148,7 +148,7 @@ const addOrder = (order) => {
   element={
     <Checkout
       cart={cart} 
-      addOrder={addOrder} 
+      addOrder={addOrder}  clearCart={clearCart}
     />
   } 
 />

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import API from "../api";
 
-function Checkout({ cart, addOrder }) {
+function Checkout({ cart, addOrder, clearCart  }) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const total = cart.reduce((sum, item) => sum + Number(item.price) * (item.qty || 1), 0);
@@ -35,18 +35,16 @@ const placeOrder = async () => {
     total: total + shipping
   };
 
-  try {
-    const { data } = await API.post("/orders", newOrder); // ✅ response lo
-
+ try {
+    const { data } = await API.post("/orders", newOrder);
+    addOrder(data);
+    clearCart();
+    navigate(`/success/${data._id}`);
     toast.success("Order Placed Successfully!", {
       className: "ud-toast",
       progressClassName: "ud-toast-progress",
       icon: "🎀",
     });
-
-    addOrder(data); // ✅ real order with _id
-    clearCart(); // ✅ cart clear karo
-    navigate(`/success/${data._id}`); // ✅ order _id pass karo
   } catch (error) {
     console.log("Order failed:", error);
     toast.error("Order failed!");
