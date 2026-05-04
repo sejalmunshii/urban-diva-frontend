@@ -14,29 +14,29 @@ function Checkout({ cart, addOrder }) {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const placeOrder = async () => {
+const placeOrder = async () => {
   if (!validate()) return;
 
-const newOrder = {
-  name: form.name,
-  email: form.email,
-  phone: form.phone,
-  address: form.address,
-  city: form.city,
-  state: form.state,
-  pincode: form.pincode,
-  items: cart.map(item => ({
-    productId: item._id,
-    title: item.title,
-    price: item.price,
-    qty: item.qty || 1,
-    img: item.img
-  })),
-  total: total + shipping
-};
+  const newOrder = {
+    name: form.name,
+    email: form.email,
+    phone: form.phone,
+    address: form.address,
+    city: form.city,
+    state: form.state,
+    pincode: form.pincode,
+    items: cart.map(item => ({
+      productId: item._id,
+      title: item.title,
+      price: item.price,
+      qty: item.qty || 1,
+      img: item.img
+    })),
+    total: total + shipping
+  };
 
   try {
-    await API.post("/orders", newOrder);
+    const { data } = await API.post("/orders", newOrder); // ✅ response lo
 
     toast.success("Order Placed Successfully!", {
       className: "ud-toast",
@@ -44,8 +44,9 @@ const newOrder = {
       icon: "🎀",
     });
 
-    addOrder(newOrder); // optional (UI sync)
-    navigate("/success");
+    addOrder(data); // ✅ real order with _id
+    clearCart(); // ✅ cart clear karo
+    navigate(`/success/${data._id}`); // ✅ order _id pass karo
   } catch (error) {
     console.log("Order failed:", error);
     toast.error("Order failed!");

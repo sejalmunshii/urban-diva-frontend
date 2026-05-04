@@ -2,7 +2,26 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
  import { Link } from "react-router-dom";
 import "./OrderHistory.css";
 
-function OrderHistory({ orders }) {
+function OrderHistory() {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        // User ki email se orders fetch karo
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) return;
+        const { data } = await API.get(`/orders/user/${user.email}`);
+        setOrders(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchOrders();
+  }, []); 
   return (
     <div className="oh-wrapper">
 

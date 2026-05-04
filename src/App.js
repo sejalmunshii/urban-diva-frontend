@@ -142,10 +142,7 @@ const addOrder = (order) => {
           />}
         />
 
-        <Route 
-  path="/success" 
-  element={<OrderSuccess clearCart={clearCart} />} 
-/>
+       <Route path="/success/:orderId" element={<OrderSuccess clearCart={clearCart} />} />
 <Route 
   path="/checkout" 
   element={
