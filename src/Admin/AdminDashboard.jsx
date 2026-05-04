@@ -27,7 +27,7 @@ function AdminDashboard() {
 
   const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
   const processing = orders.filter((o) => o.status === "Processing").length;
-  const delivered = orders.filter((o) => o.status === "Delivered").length;
+//   const delivered = orders.filter((o) => o.status === "Delivered").length;
 
   if (loading) return <div className="admin-loading">Loading...</div>;
 

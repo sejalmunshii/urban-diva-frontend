@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart";
 import Navbar from "./Components/Navbar";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Collections from "./Pages/Collections";
 import ProductDetails from "./Pages/ProductDetails";
@@ -124,7 +124,7 @@ const addOrder = (order) => {
 
   return (
     <>
-     {!isAdmin && <Navbar cart={cart} wishlist={wishlist} />}
+     {!isAdmin && <Navbar cart={cart} wishlist={wishlist} user={user} logout={logout} />}
     
       <Routes>
         <Route path="/" element={<Home addToCart={addToCart} toggleWishlist={toggleWishlist}
@@ -161,7 +161,9 @@ const addOrder = (order) => {
 />
 <Route path="*" element={<NotFound />} />
  <Route path="/admin" element={<AdminLogin setAdminToken={setAdminToken} />} />
- <Route path="/admin/dashboard" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
+<Route path="/admin/dashboard" element={
+  adminToken ? <AdminLayout><AdminDashboard /></AdminLayout> : <Navigate to="/admin" />
+} />
 <Route path="/admin/products" element={<AdminLayout><AdminProducts /></AdminLayout>} />
 <Route path="/admin/orders" element={<AdminLayout><AdminOrders /></AdminLayout>} />
 <Route path="/login" element={<Login setUser={setUser} />} />
