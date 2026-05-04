@@ -1,34 +1,55 @@
 import { useNavigate } from "react-router-dom";
-import "./Product.css";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import "./Product.css";
 
 function Product({ item, addToCart, toggleWishlist, wishlist }) {
-    const navigate = useNavigate();
-    const isWishlisted = wishlist.some((x) => x.id === item._id);
+  const navigate = useNavigate();
+  const isWishlisted = wishlist.some((x) => x._id === item._id);
+
+  // User check karo
+  const user = JSON.parse(localStorage.getItem("user"));
+
+ const handleAddToCart = () => {
+  if (!user) {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 3000);
+    return;
+  }
+  addToCart({ ...item, qty: 1 });
+};
+
+const handleWishlist = () => {
+  if (!user) {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 3000);
+    return;
+  }
+  toggleWishlist(item);
+};
+
   return (
     <div className="col-lg-3 col-md-6 mb-4">
       <div className="product-card">
-
-        {/* Image */}
         <div className="img-wrap">
-          <img src={item.img} alt={item.title}  onClick={() => navigate(`/product/${item._id}`)} />
+          <img src={item.img} alt={item.title} onClick={() => navigate(`/product/${item._id}`)} />
           {item.badge && (
             <span className={`badge-tag ${item.badge === "Sale" ? "sale" : ""}`}>
               {item.badge}
             </span>
           )}
-          <button className="wishlist-btn" onClick={() => toggleWishlist(item)}>{isWishlisted ? <AiFillHeart className="red-heart" /> : <AiOutlineHeart className="white-heart" />}</button>
+          <button className="wishlist-btn" onClick={handleWishlist}>
+            {isWishlisted ? <AiFillHeart className="red-heart" /> : <AiOutlineHeart />}
+          </button>
         </div>
 
-        {/* Info */}
         <div className="card-body">
-          <h5  onClick={() => navigate(`/product/${item._id}`)}>{item.title}</h5>
+          <h5 onClick={() => navigate(`/product/${item._id}`)}>{item.title}</h5>
           <p className="card-desc">{item.desc}</p>
           <div className="card-bottom">
             <span className="price">₹ {item.price.toLocaleString()}</span>
-           <button className="add-btn" onClick={() => addToCart({ ...item, qty: 1 })}>
-  Add to Cart
-</button>
+            <button className="add-btn" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
 
