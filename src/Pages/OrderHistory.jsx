@@ -1,7 +1,7 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
  import { Link } from "react-router-dom";
 import "./OrderHistory.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function OrderHistory() {
   const [orders, setOrders] = useState([]);
