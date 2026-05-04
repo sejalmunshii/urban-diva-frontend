@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./Product.css";
+import { useState } from "react";
 
 function Product({ item, addToCart, toggleWishlist, wishlist = [] }) {
   const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+
   const isWishlisted = wishlist.some((x) => x._id === item._id);
 
   // User check karo
