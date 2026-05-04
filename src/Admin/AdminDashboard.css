@@ -1,0 +1,136 @@
+.dashboard-wrapper { display: flex; flex-direction: column; gap: 28px; }
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.stat-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #f5dada;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: box-shadow 0.2s;
+}
+.stat-card:hover { box-shadow: 0 6px 20px rgba(201,108,108,0.1); }
+.stat-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.stat-info h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #2c1f1f;
+  margin-bottom: 2px;
+}
+.stat-info p { font-size: 12px; color: #a07878; }
+
+/* Section */
+.dash-section {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #f5dada;
+  padding: 24px;
+}
+.dash-section-head {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f5dada;
+}
+.dash-section-head h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #2c1f1f;
+}
+
+/* Table */
+.dash-table-wrap { overflow-x: auto; }
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.dash-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a07878;
+  background: #fdf7f2;
+  font-weight: 500;
+}
+.dash-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #fdf0f0;
+  color: #2c1f1f;
+}
+.dash-table tr:last-child td { border-bottom: none; }
+.order-id { font-weight: 600; color: #c96c6c; }
+
+/* Status Pills */
+.status-pill {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.status-pill.processing { background: #fdf0f0; color: #c96c6c; }
+.status-pill.delivered  { background: #e8f5ee; color: #3a9a6e; }
+.status-pill.shipped    { background: #e8f0ff; color: #4a6fd4; }
+.status-pill.cancelled  { background: #fce8e8; color: #c94a4a; }
+
+/* Products */
+.dash-products { display: flex; flex-direction: column; gap: 12px; }
+.dash-product-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.dash-product-item:hover { background: #fdf7f2; }
+.dash-product-item img {
+  width: 52px; height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #f5dada;
+}
+.dash-product-item h5 {
+  font-size: 14px;
+  color: #2c1f1f;
+  margin-bottom: 2px;
+}
+.dash-product-item p { font-size: 12px; color: #c96c6c; }
+.stock-pill {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #e8f5ee;
+  color: #3a9a6e;
+  font-weight: 500;
+}
+.stock-pill.low { background: #fdf0f0; color: #c96c6c; }
+
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  font-size: 14px;
+  color: #a07878;
+}
+.no-data { font-size: 13px; color: #a07878; padding: 20px 0; }

@@ -1,0 +1,238 @@
+.collections-wrapper {
+  background: #fdf7f2;
+  min-height: 100vh;
+}
+
+/* Header */
+.collections-header {
+  background: linear-gradient(120deg, #fde8e8 0%, #fdf7f2 60%, #f5e6f0 100%);
+  padding: 15px 40px;
+  border-bottom: 1px solid #f5dada;
+}
+.collections-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: #2c1f1f;
+}
+.collections-header p {
+  font-size: 12px;
+  color: #a07878;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* Layout */
+.collections-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  padding: 30px 40px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #f5dada;
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+.sidebar-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2c1f1f;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f5dada;
+}
+.filter-group {
+  margin-bottom: 24px;
+}
+.filter-group h6 {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #a07878;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.filter-option input[type="radio"] {
+  accent-color: #c96c6c;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.filter-option label {
+  font-size: 13px;
+  color: #2c1f1f;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.filter-option:hover label,
+.filter-option.active label {
+  color: #c96c6c;
+  font-weight: 500;
+}
+
+/* Size */
+.size-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.size-btn {
+  border: 1px solid #f5dada;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #a07878;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.size-btn:hover {
+  border-color: #c96c6c;
+  color: #c96c6c;
+  background: #fdf0f0;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+.search-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1.5px solid #f5dada;
+  border-radius: 30px;
+  padding: 10px 18px;
+  flex: 1;
+  max-width: 360px;
+}
+.search-inner input {
+  border: none;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #2c1f1f;
+  width: 100%;
+  background: transparent;
+}
+.search-inner input::placeholder { color: #c4a0a0; }
+.search-icon { color: #c4a0a0; font-size: 16px; }
+.results-count {
+  font-size: 12px;
+  color: #a07878;
+  white-space: nowrap;
+}
+.price-range-wrap {
+  background: #fdf0f0;
+  border: 1px solid #f5dada;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.price-labels span:first-child {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #a07878;
+  font-weight: 500;
+}
+.price-value {
+  font-size: 12px;
+  color: #c96c6c;
+  font-weight: 500;
+  background: #fff;
+  border: 1px solid #f5dada;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.price-slider {
+  width: 100%;
+  accent-color: #c96c6c;
+  cursor: pointer;
+  height: 4px;
+}
+
+.price-minmax {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #a07878;
+}
+/* Error Message */
+.error {
+  font-size: 11px;
+  color: #c96c6c;
+  background: #fdf0f0;
+  border-left: 2px solid #c96c6c;
+  border-radius: 0 8px 8px 0;
+  padding: 5px 12px;
+   margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+/* Input row error fix */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start; /* ✅ error text neeche shift nahi karega */
+}
+/* Input Group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+/* Label */
+.ud-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a07878;
+  margin-bottom: 6px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Input row fix */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .collections-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+}

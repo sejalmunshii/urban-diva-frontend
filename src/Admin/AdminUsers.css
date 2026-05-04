@@ -1,0 +1,128 @@
+.au-wrapper { display: flex; flex-direction: column; gap: 24px; }
+
+/* Header */
+.au-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.au-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #2c1f1f;
+  margin-bottom: 4px;
+}
+.au-header p { font-size: 12px; color: #a07878; }
+
+/* Search */
+.au-search input {
+  border: 1.5px solid #f5dada;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  color: #2c1f1f;
+  outline: none;
+  width: 240px;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.au-search input:focus { border-color: #e8a0a0; }
+.au-search input::placeholder { color: #c4a0a0; }
+
+/* Stats */
+.au-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.au-stat {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #f5dada;
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.au-stat:hover { box-shadow: 0 4px 16px rgba(201,108,108,0.1); }
+.au-stat h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #c96c6c;
+  margin-bottom: 4px;
+}
+.au-stat p { font-size: 12px; color: #a07878; }
+
+/* Table */
+.au-table-wrap {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #f5dada;
+  overflow: hidden;
+}
+.au-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.au-table th {
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a07878;
+  background: #fdf7f2;
+  font-weight: 500;
+}
+.au-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #fdf0f0;
+  color: #2c1f1f;
+  vertical-align: middle;
+}
+.au-table tr:last-child td { border-bottom: none; }
+.au-table tr:hover td { background: #fdf7f2; }
+
+.au-index { color: #a07878; font-size: 12px; }
+
+/* User Info */
+.au-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.au-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fde8e8, #f5dada);
+  color: #c96c6c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.au-email { color: #a07878; }
+.au-date { color: #a07878; font-size: 12px; }
+
+/* Status */
+.au-status {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.au-status.verified   { background: #e8f5ee; color: #3a9a6e; }
+.au-status.unverified { background: #fdf0f0; color: #c96c6c; }
+
+.au-no-data {
+  text-align: center;
+  color: #a07878;
+  padding: 40px !important;
+  font-size: 13px;
+}
